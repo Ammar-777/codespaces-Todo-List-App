@@ -1,14 +1,20 @@
 import React from 'react'
 
-const TodoList = ({todos}) => {
+const TodoList = ({ todos, toggleTodo }) => {
   return (
     <div>
-        <h2>Todo List</h2>
-        <ul>
-            {todos.map((todo, index) => (
-                <li key={index}>{todo.title}</li>
-            ))}
-        </ul>
+      <h2>Todo List</h2>
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}
+            style={{
+              textDecoration:
+                todo.completed ? 'line-through' : 'none'
+            }}
+            onClick={() => toggleTodo(index)}>
+            {todo.title}</li>
+        ))}
+      </ul>
     </div>
   )
 }
